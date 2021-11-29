@@ -94,7 +94,7 @@ class DiceLoss(nn.Module):
                 if self.weight is not None:
                     assert self.weight.shape[0] == target.shape[1], \
                         'Expect weight shape [{}], get[{}]'.format(target.shape[1], self.weight.shape[0])
-                    dice_loss *= self.weights[i]
+                    dice_loss *= self.weight[i]
                 total_loss += dice_loss
 
         return total_loss/target.shape[1]
